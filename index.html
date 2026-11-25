@@ -2,541 +2,288 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Can Math Beat Chance?</title>
 
-<title>Can Math Beat Chance?</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f3e8;
+      color: #172554;
+      line-height: 1.6;
+    }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    header {
+      background: #172554;
+      color: white;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #faf7f0;
-    color: #202b46;
-}
-
-/* NAVIGATION */
-
-nav {
-    background: #101d3c;
-    padding: 20px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    flex-wrap: wrap;
-    gap: 15px;
-    border-bottom: 3px solid #d6a94e;
-}
-
-.logo {
-    font-size: 22px;
-    font-weight: bold;
-    color: #f2c66d;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-size: 14px;
-}
-
-nav a:hover {
-    color: #f2c66d;
-}
-
-/* HOMEPAGE */
-
-.hero {
-    background: linear-gradient(120deg, #101d3c, #263c70);
-    color: white;
-    padding: 75px 7%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 45px;
-    text-align: left;
-}
-
-.hero-content {
-    flex: 1;
-}
-
-.hero h1 {
-    font-size: clamp(38px, 5vw, 60px);
-    color: #f2c66d;
-    margin-bottom: 22px;
-}
-
-.hero p {
-    font-size: 19px;
-    line-height: 1.7;
-    max-width: 550px;
-}
-
-.hero img {
-    width: 43%;
-    max-width: 450px;
-    border-radius: 18px;
-    border: 4px solid #d6a94e;
-    box-shadow: 0 12px 35px #0005;
-}
-
-.btn {
-    display: inline-block;
-    background: #d6a94e;
-    color: #101d3c;
-    padding: 15px 28px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 28px;
-    border: none;
-    cursor: pointer;
-    font-size: 15px;
-}
-
-.btn:hover {
-    background: #f2c66d;
-    transform: translateY(-2px);
-}
-
-/* GENERAL SECTIONS */
-
-section {
-    padding: 75px 9%;
-    text-align: center;
-}
-
-section h2 {
-    font-size: 34px;
-    margin-bottom: 18px;
-    color: #17274c;
-}
-
-.intro {
-    max-width: 700px;
-    margin: auto;
-    line-height: 1.7;
-    color: #62677c;
-}
-
-/* LEARNING CARDS */
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-    margin-top: 40px;
-}
-
-.card {
-    background: white;
-    padding: 30px;
-    border-radius: 18px;
-    border: 1px solid #eadbbd;
-    box-shadow: 0 5px 20px #20244312;
-    transition: transform 0.2s;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-}
-
-.card .emoji {
-    font-size: 42px;
-    margin-bottom: 15px;
-}
-
-.card h3 {
-    margin-bottom: 12px;
-    color: #263c70;
-}
-
-.card p {
-    color: #62677c;
-    line-height: 1.6;
-}
-
-/* EXPERIMENT */
-
-.experiment {
-    background: #eee9dc;
-}
-
-.game {
-    background: white;
-    max-width: 600px;
-    margin: 35px auto 0;
-    padding: 35px;
-    border-radius: 20px;
-    border: 2px solid #d6a94e;
-    box-shadow: 0 5px 20px #20244312;
-}
-
-.dice {
-    font-size: 85px;
-    margin: 20px;
-}
-
-.result {
-    font-size: 19px;
-    font-weight: bold;
-    margin: 20px;
-    color: #263c70;
-}
-
-/* QUIZ */
-
-.quiz {
-    max-width: 650px;
-    margin: 30px auto 0;
-    background: white;
-    padding: 35px;
-    border-radius: 20px;
-    border: 2px solid #eadbbd;
-    box-shadow: 0 5px 20px #20244312;
-}
-
-.quiz button {
-    display: block;
-    width: 100%;
-    padding: 14px;
-    margin: 12px 0;
-    border: 2px solid #e1e5f5;
-    background: #faf7f0;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.quiz button:hover {
-    background: #eee9dc;
-    border-color: #d6a94e;
-}
-
-#quizResult {
-    margin-top: 20px;
-    font-weight: bold;
-}
-
-/* FOOTER */
-
-footer {
-    background: #101d3c;
-    color: white;
-    text-align: center;
-    padding: 35px;
-    border-top: 4px solid #d6a94e;
-}
-
-footer h3 {
-    color: #f2c66d;
-    font-size: 23px;
-}
-
-/* MOBILE */
-
-@media(max-width: 700px) {
-
-    nav {
-        justify-content: center;
+    header h2 {
+      color: #facc15;
     }
 
     nav a {
-        margin: 5px;
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #facc15;
     }
 
     .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 60px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 70px 8%;
+      background: #1e3a8a;
+      color: white;
+      flex-wrap: wrap;
     }
 
-    .hero img {
-        width: 100%;
-        max-width: 420px;
+    .hero-text {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      color: #facc15;
+      line-height: 1.15;
+      margin-bottom: 20px;
     }
 
     .hero p {
-        margin: auto;
+      font-size: 19px;
+      margin-bottom: 25px;
     }
-}
 
-</style>
+    .hero img {
+      width: 40%;
+      min-width: 260px;
+      border-radius: 18px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #facc15;
+      color: #172554;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 60px 8%;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+      color: #1e3a8a;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      width: 260px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      color: #ca8a04;
+      margin-bottom: 10px;
+    }
+
+    .experiment {
+      background: #e0e7ff;
+    }
+
+    button {
+      background: #1e3a8a;
+      color: white;
+      border: none;
+      padding: 13px 25px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 15px;
+    }
+
+    button:hover {
+      background: #ca8a04;
+    }
+
+    #diceResult {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 15px;
+      color: #1e3a8a;
+    }
+
+    footer {
+      background: #172554;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero img {
+        width: 100%;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
-
-<nav>
-
-    <div class="logo">
-        📐 Math vs Chance
-    </div>
-
-    <div>
-        <a href="#about">About</a>
-        <a href="#learn">Explore</a>
-        <a href="#experiment">Experiment</a>
-        <a href="#quiz">Quiz</a>
-    </div>
-
-</nav>
-
-
-<!-- HOMEPAGE -->
-
-<div class="hero">
-
-    <div class="hero-content">
-
-        <h1>Can Math Beat Chance?</h1>
-
-        <p>
-            Is winning all about luck, or is there
-            mathematics behind every victory?
-
-            Explore probability, test your luck,
-            and discover how numbers can change
-            the way you play the game.
-        </p>
-
-        <a href="#about" class="btn">
-            Explore the Odds →
-        </a>
-
-    </div>
-
-    <img src="raffle-wheel.png"
-         alt="Colourful raffle wheel, dice and raffle tickets">
-
-</div>
-
-
-<!-- ABOUT -->
-
-<section id="about">
-
+  <header>
     <h2>Math vs Chance</h2>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#explore">Explore</a>
+      <a href="#experiment">Experiment</a>
+      <a href="#quiz">Quiz</a>
+    </nav>
+  </header>
 
-    <p class="intro">
-        Chance is unpredictable, but mathematics helps us
-        understand the possibilities. By using probability,
-        patterns and logical thinking, we can make better
-        predictions and smarter decisions.
+  <div class="hero">
+    <div class="hero-text">
+      <h1>Can Math Beat Chance?</h1>
+      <p>
+        Is winning all about luck, or can mathematics give you
+        an advantage? Explore probability, discover patterns,
+        and test your knowledge to find out!
+      </p>
+      <a href="#explore" class="btn">Start Exploring</a>
+    </div>
+
+    <img src="golden coin raffle spin.png" alt="Raffle wheel">
+  </div>
+
+  <section id="about">
+    <h2>About the Project</h2>
+    <p>
+      This website explores the connection between mathematics
+      and chance. Learn how probability works and discover
+      whether math can help us make smarter decisions.
     </p>
+  </section>
 
-</section>
-
-
-<!-- LEARNING -->
-
-<section id="learn">
-
-    <h2>What Will You Discover?</h2>
-
-    <p class="intro">
-        Explore different ways mathematics helps us
-        understand the world of chance.
-    </p>
+  <section id="explore">
+    <h2>Explore the World of Probability</h2>
 
     <div class="cards">
-
-        <div class="card">
-
-            <div class="emoji">🎲</div>
-
-            <h3>Probability</h3>
-
-            <p>
-                Learn how to calculate the chances
-                of an event happening.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="emoji">🔢</div>
-
-            <h3>Patterns</h3>
-
-            <p>
-                Discover how numbers and patterns
-                can help explain random events.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="emoji">🧠</div>
-
-            <h3>Strategy</h3>
-
-            <p>
-                Find out how mathematical thinking
-                can help you make better decisions.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- EXPERIMENT -->
-
-<section class="experiment" id="experiment">
-
-    <h2>Test Your Luck!</h2>
-
-    <p class="intro">
-        Roll a virtual dice and see how chance works.
-        Can you predict what number will appear?
-    </p>
-
-    <div class="game">
-
-        <div class="dice" id="dice">🎲</div>
-
-        <div class="result" id="diceResult">
-            Ready to roll?
-        </div>
-
-        <button class="btn" onclick="rollDice()">
-            Roll the Dice!
-        </button>
-
-        <p id="stats" style="margin-top:20px;color:#62677c;">
-            Total rolls: 0
+      <div class="card">
+        <h3>Probability</h3>
+        <p>
+          Learn how to calculate the chances of an event
+          happening.
         </p>
+      </div>
 
+      <div class="card">
+        <h3>Patterns</h3>
+        <p>
+          Discover patterns in numbers and understand
+          how they relate to chance.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Strategy</h3>
+        <p>
+          Explore how mathematical thinking can help
+          you make better decisions.
+        </p>
+      </div>
     </div>
+  </section>
 
-</section>
-
-
-<!-- QUIZ -->
-
-<section id="quiz">
-
-    <h2>Challenge Your Brain!</h2>
-
-    <p class="intro">
-        Put your mathematical knowledge to the test.
+  <section class="experiment" id="experiment">
+    <h2>Try Your Luck!</h2>
+    <p>
+      Roll the dice and see what number you get.
+      Can you predict the result?
     </p>
 
-    <div class="quiz">
+    <button onclick="rollDice()">Roll the Dice</button>
+    <div id="diceResult">🎲</div>
+  </section>
 
-        <h3>
-            What is the probability of rolling a 6
-            on a fair six-sided dice?
-        </h3>
-
-        <button onclick="checkAnswer(false)">
-            1/2
-        </button>
-
-        <button onclick="checkAnswer(true)">
-            1/6
-        </button>
-
-        <button onclick="checkAnswer(false)">
-            1/3
-        </button>
-
-        <button onclick="checkAnswer(false)">
-            1/4
-        </button>
-
-        <div id="quizResult"></div>
-
-    </div>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-    <h3>Can Math Beat Chance?</h3>
-
-    <p style="margin-top:10px;">
-        Think logically. Calculate carefully.
-        Challenge chance.
+  <section id="quiz">
+    <h2>Quick Math Challenge</h2>
+    <p>
+      What is the probability of rolling a 6 on a fair six-sided die?
     </p>
 
-    <p style="margin-top:15px;font-size:13px;">
-        © 2026 Math vs Chance
-    </p>
+    <button onclick="checkAnswer('1/6')">1/6</button>
+    <button onclick="checkAnswer('1/2')">1/2</button>
+    <button onclick="checkAnswer('1/3')">1/3</button>
 
-</footer>
+    <p id="quizResult"></p>
+  </section>
 
+  <footer>
+    <p>Can Math Beat Chance? | Discover the Power of Mathematics</p>
+  </footer>
 
-<!-- JAVASCRIPT -->
-
-<script>
-
-let rolls = 0;
-
-function rollDice() {
-
-    const number = Math.floor(Math.random() * 6) + 1;
-
-    const diceFaces = [
-        "", "⚀", "⚁", "⚂", "⚃", "⚄", "⚅"
-    ];
-
-    document.getElementById("dice").textContent =
-        diceFaces[number];
-
-    document.getElementById("diceResult").textContent =
-        "You rolled a " + number + "!";
-
-    rolls++;
-
-    document.getElementById("stats").textContent =
-        "Total rolls: " + rolls;
-
-}
-
-function checkAnswer(correct) {
-
-    const result = document.getElementById("quizResult");
-
-    if (correct) {
-
-        result.textContent =
-            "Correct! Great mathematical thinking! 🎉";
-
-        result.style.color = "green";
-
-    } else {
-
-        result.textContent =
-            "Not quite! Try again. 💡";
-
-        result.style.color = "red";
-
+  <script>
+    function rollDice() {
+      const result = Math.floor(Math.random() * 6) + 1;
+      document.getElementById("diceResult").innerHTML =
+        "🎲 You rolled a " + result + "!";
     }
 
-}
+    function checkAnswer(answer) {
+      const result = document.getElementById("quizResult");
 
-</script>
+      if (answer === "1/6") {
+        result.innerHTML = "Correct! Great job!";
+      } else {
+        result.innerHTML = "Not quite! Try again.";
+      }
+    }
+  </script>
 
 </body>
 </html>
